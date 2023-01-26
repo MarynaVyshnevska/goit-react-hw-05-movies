@@ -1,5 +1,5 @@
-import { useLocation } from "react-router-dom";
-import image from './no-means-no.png';
+import { Link, useLocation } from "react-router-dom";
+import image from './no.jpg';
 
 const MoviesList = ({ movies }) => {
     const location = useLocation();
@@ -9,14 +9,16 @@ const MoviesList = ({ movies }) => {
         <div>
             {movies.map(movie => (
                 <li key={movie.id}>
-                    <div state={{from: location}} to={`/movies/${movie.id}`}>
-                        {(movie.poster_path === null) ? 
-                            <img src={image} alt={movie.title} />
-                            : <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-                        }
+                    <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                        <div state={{from: location}} to={`/movies/${movie.id}`}>
+                            {(movie.poster_path === null) ? 
+                                <img src={image} alt={movie.title} />
+                                : <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                            }
 
-                        <p>{movie.title}</p>
-                    </div>
+                            <p>{movie.title}</p>
+                        </div>
+                    </Link>
                 </li>
             ))}
         </div>

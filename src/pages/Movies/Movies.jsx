@@ -11,7 +11,7 @@ const Movies = () => {
     const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    // const [page, setPage] = useState(1);
+    const [notFound, setNotFound] = useState(false);
     // const location = useLocation();
 
     useEffect(() => {
@@ -24,6 +24,7 @@ const Movies = () => {
             .then(movies => {
                 if (movies.results.length < 1) {
                     Notify.warning(' :( We coudnot find any movie');
+                    setNotFound(true);
                 }
                 setMovies(movies.results);
 
@@ -37,6 +38,8 @@ const Movies = () => {
         
     }, [query]);
 
+ 
+    
     const handleChange = event => {
         event.preventDefault();
         const searchInfo = event.currentTarget.query.value.toLowerCase();
@@ -65,12 +68,8 @@ const Movies = () => {
                 </button>
             </form>
             {loading && <Spinner />}
-            {(movies.length !== 0) ?
-                <MoviesList movies={movies} />
-                : <NotFound />
-            
-            }
-
+            {movies.length !== 0 && <MoviesList movies={movies} />}
+            {notFound && <NotFound/>}
         </div>    
     )    
 };
