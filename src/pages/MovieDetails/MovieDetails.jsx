@@ -4,7 +4,7 @@ import { useParams, useLocation, Link, NavLink, Outlet } from "react-router-dom"
 import { getMovieDetails } from "service/movies.service";
 import Spinner from "components/Spinner/Spinner";
 import NotFound from "components/NotFound/NotFound";
-import image from '../../components/MoviesList/no.jpg';
+import image from '../../images/no.jpg';
 import MovieCard from "components/MoviesList/MovieCard/MovieCard";
 
 
@@ -63,18 +63,18 @@ const MovieDetails = () => {
                 <p>Additional Informational</p>
                 <ul>
                     <li key='cast'>
-                        <NavLink to="cast" state={{ from: location.state.from }}>
+                        <NavLink to='cast' state={{ from: location.state.from }}>
                             Cast
                         </NavLink>
                     </li>
                     <li key='reviews'>
-                        <NavLink to="reviews" state={{ from: location.state.from }}>
+                        <NavLink to='reviews' state={{ from: location.state.from }}>
                             Reviews
                         </NavLink>
                     </li>
                 </ul>
             </section>
-            <Suspense fallback={null}>
+            <Suspense fallback={<Spinner/>}>
                 <Outlet/>
             </Suspense>
         </div>

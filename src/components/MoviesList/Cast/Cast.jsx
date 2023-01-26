@@ -4,7 +4,7 @@ import {getMovieCast} from "service/movies.service";
 import { toast } from 'react-toastify';
 import Spinner from 'components/Spinner/Spinner';
 import NotFound from 'components/NotFound/NotFound';
-import image from './actor-logo.png';
+import image from '../../../images/actor-logo.png';
 
 const MovieCast = () => {
     const { movieId } = useParams();
@@ -31,20 +31,26 @@ const MovieCast = () => {
         return <NotFound/>
     }
 
-    console.log(movieId);
-    console.log(actors);
+    // console.log(movieId);
+    // console.log(actors.cast);
     return (
         <div>
             <h1>test</h1>
             <ul>
-                {/* {actors.cast.map(({ character, id, name, original_name, profile_path }) => {
-                    <li key={id}>
-                        <img
-                            src={profile_path === null ? defaultImg : `https://image.tmdb.org/t/p/w500${profile_path}`} 
-                            alt={name}
-                        />
-                    </li>
-                })} */}
+                {actors.cast.length > 0 &&
+                    actors.cast.map(({ character, id, name, original_name, profile_path }) => {
+                    return (
+                        <li key={id}>
+                            <img
+                                src={profile_path === null ? defaultImg : `https://image.tmdb.org/t/p/w500${profile_path}`} 
+                                alt={name}
+                            />
+                            <p className=''>{name}</p>
+                            {original_name !== name && (<p className=''>{original_name}</p>)}
+                            <p className=''>Aka {character}</p>
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     )

@@ -3,7 +3,8 @@ import MovieDetails from "pages/MovieDetails/MovieDetails";
 import Movies from "pages/Movies/Movies";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
-import MovieCast from "./MoviesList/MovieCast/MovieCast";
+import MovieCast from "./MoviesList/Cast/Cast";
+import MovieReview from "./MoviesList/Review/Review";
 
 
 export const App = () => {
@@ -15,6 +16,7 @@ export const App = () => {
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReview />} />
           </Route>
           
         </Route>

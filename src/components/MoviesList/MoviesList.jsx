@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import image from './no.jpg';
+import image from '../../images/no.jpg';
 
 const MoviesList = ({ movies }) => {
     const location = useLocation();
-    console.log(movies);
+    // console.log(movies);
     
     return (
         <div>

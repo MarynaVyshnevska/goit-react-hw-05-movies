@@ -11,7 +11,7 @@ export const getTrendingMovies = () => {
 }
 
 export const getMoviesByQuery = (query) => {
-    return fetch(`${BASE_URL}/search/movie?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=true`)
+    return fetch(`${BASE_URL}/search/movie?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=false`)
         .then(response => {
             return response.json();
    })

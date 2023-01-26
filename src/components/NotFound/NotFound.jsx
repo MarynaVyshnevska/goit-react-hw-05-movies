@@ -1,5 +1,5 @@
 
-import image from './i-dont-know-compilation-dont-know.gif';
+import image from '../../images/i-dont-know-compilation-dont-know.gif';
 
 const NotFound = () => {
     return(
