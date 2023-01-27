@@ -1,0 +1,35 @@
+.title {
+    padding-left: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.input {
+    margin-left: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    width: 300px;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--color-accent);
+}
+
+.btn{
+    padding: 4px;
+    margin: 8px;
+    border-radius: 4px;
+    border-color: transparent;
+    background-color: var(--color-accent);
+    color: var(--color-accent-lite);
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--color-accent-lite);
+    color: var(--color-second);
+}

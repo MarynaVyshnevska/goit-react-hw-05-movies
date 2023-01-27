@@ -1,0 +1,62 @@
+.back{
+    padding: 4px;
+    margin: 8px;
+    border-radius: 4px;
+    border-color: transparent;
+    background-color: var(--color-accent);
+    color: var(--color-accent-lite);
+}
+.back:hover, 
+.back:focus{
+    background-color: var(--color-accent-lite);
+    color: var(--color-second);
+}
+
+.box {
+    margin: 0 auto;
+    padding: 16px;
+    border-bottom: 12px ridge var(--color-border-bottom);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.posterBox{
+    width: 100%;
+}
+.poster {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+.footer{
+    border-bottom: 12px ridge var(--color-border-bottom);
+    padding: 16px;
+}
+.infoTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+.btnInfoList{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 24px;
+}
+.btnInfo {
+    font-size: 16px;
+    color: var(--color-second);
+    align-items: center;
+    display: flex;
+    padding: 8px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btnInfo:focus,
+.btnInfo:hover {
+    background-color: var(--color-hover);
+}

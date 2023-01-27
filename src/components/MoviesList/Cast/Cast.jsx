@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Spinner from 'components/Spinner/Spinner';
 import NotFound from 'components/NotFound/NotFound';
 import image from '../../../images/actor-logo.png';
+import css from './Cast.module.css';
 
 const Cast = () => {
     const { movieId } = useParams();
@@ -35,19 +36,19 @@ const Cast = () => {
     // console.log(actors.cast);
     return (
         <div>
-            <h1>test</h1>
-            <ul>
+            <ul className={css.list}>
                 {actors.cast.length > 0 &&
                     actors.cast.map(({ character, id, name, original_name, profile_path }) => {
                     return (
-                        <li key={id}>
+                        <li key={id} className={css.item}>
                             <img
                                 src={profile_path === null ? defaultImg : `https://image.tmdb.org/t/p/w500${profile_path}`} 
                                 alt={name}
+                                className={css.itemImg}
                             />
-                            <p className=''>{name}</p>
-                            {original_name !== name && (<p className=''>{original_name}</p>)}
-                            <p className=''>Aka {character}</p>
+                            <p className={css.itemName}>{name}</p>
+                            {original_name !== name && (<p className={css.itemName}>{original_name}</p>)}
+                            <p className={css.itemCharacter}>as {character}</p>
                         </li>
                     )
                 })}

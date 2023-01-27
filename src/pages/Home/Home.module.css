@@ -1,0 +1,22 @@
+.title{
+    padding-left: 32px;
+    font-size: 30px;
+    font-weight: 500;
+}
+.list {
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 2px;
+    
+}
+.item{
+    color: var(--color-second);
+}
+.item:hover,
+.item:focus{
+    color: var(--color-accent);
+}
+
+.icon {
+    margin-right: 4px;
+}

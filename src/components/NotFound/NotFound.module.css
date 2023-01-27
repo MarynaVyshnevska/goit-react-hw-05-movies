@@ -1,2 +1,15 @@
-
+.box {
+    width: 100%;
+}
+.img {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+.text {
+    text-align: center;
+    color: var(--color-second);
+    font-size: 16px;
+    font-weight: 500;
+}
 

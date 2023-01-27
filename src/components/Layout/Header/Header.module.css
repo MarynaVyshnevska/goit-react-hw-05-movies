@@ -1,0 +1,29 @@
+.box{
+    border-bottom: 12px ridge var(--color-border-bottom);
+}
+.list{
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    
+}
+
+.nav{
+    font-size: 28px;
+    color: var(--color-second);
+    align-items: center;
+    display: flex;
+    padding: 4px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.nav:focus, 
+.nav:hover {
+    background-color: var(--color-hover);
+}
+
+.icon{
+    size: 24px;
+    margin-right: 6px;
+
+}

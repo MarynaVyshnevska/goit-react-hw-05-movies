@@ -5,6 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getMoviesByQuery } from "service/movies.service";
 import Spinner from "components/Spinner/Spinner";
 import NotFound from "components/NotFound/NotFound";
+import css from './Movies.module.css';
 
 const Movies = () => {
     const [query, setQuery] = useState('');
@@ -51,15 +52,16 @@ const Movies = () => {
     // console.log(notFound);
     return (
         <div>
-            <h1>Search movie</h1>
+            <p className={css.title}>Search movie</p>
             <form onSubmit={handleChange}>
                 <input
                     type='text'
                     name='query'
                     autoFocus
                     placeholder="Enter movie's title"
+                    className={css.input}
                 />
-                <button type="submit">
+                <button type="submit" className={css.btn}>
                     <FiSearch size='12px' />
                     Search
                 </button>

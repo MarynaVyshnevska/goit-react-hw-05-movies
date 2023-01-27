@@ -1,0 +1,32 @@
+.list {
+    padding: 8px;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 12px ridge var(--color-border-bottom);
+}
+
+.item{
+    width: 200px;
+    padding: 8px;
+    gap: 10px;
+}
+.itemImg {
+    width: inherit;
+}
+.itemName {
+    text-align: center;
+    color: var(--color-accent);
+    font-size: 16px;
+    font-weight: 500;
+}
+.itemCharacter {
+    text-align: center;
+    color: var(--color-second);
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+}
