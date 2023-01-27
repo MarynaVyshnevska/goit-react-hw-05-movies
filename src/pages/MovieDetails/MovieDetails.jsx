@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from "react";
-import { toast } from 'react-toastify';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useParams, useLocation, Link, NavLink, Outlet } from "react-router-dom";
 import { getMovieDetails } from "service/movies.service";
 import Spinner from "components/Spinner/Spinner";
@@ -18,9 +18,7 @@ const MovieDetails = () => {
         setLoading(true);
         getMovieDetails(movieId).then(setDetails)
             .catch(() => {
-                toast.error('🦄 :( Oops ', {
-                    theme: "colored",
-                });
+                Notify.failure('🦄 :( Oops ');
             })
             .finally(() => setLoading(false));
     }, [movieId]);

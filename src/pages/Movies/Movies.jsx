@@ -4,7 +4,6 @@ import { FiSearch } from 'react-icons/fi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getMoviesByQuery } from "service/movies.service";
 import Spinner from "components/Spinner/Spinner";
-import { toast } from "react-toastify";
 import NotFound from "components/NotFound/NotFound";
 
 const Movies = () => {
@@ -19,20 +18,19 @@ const Movies = () => {
             return 
         }
         setLoading(true);
- 
+
         getMoviesByQuery(query)
             .then(movies => {
                 if (movies.results.length < 1) {
                     Notify.warning(' :( We coudnot find any movie');
                     setNotFound(true);
+                    console.log('test');
                 }
                 setMovies(movies.results);
 
             })
             .catch(() => {
-                toast.error('🦄 :( We coudnot find any movie ', {
-                    theme: "colored",
-                });
+                Notify.failure('🦄 :( We coudnot find any movie ');
             })
             .finally(() => setLoading(false));
         
@@ -42,16 +40,15 @@ const Movies = () => {
     
     const handleChange = event => {
         event.preventDefault();
+        setNotFound(false);
         const searchInfo = event.currentTarget.query.value.toLowerCase();
         if (searchInfo === '') {
-            return toast('🦄 Please, enter word for search', {
-                    theme: "colored",
-            });
+            return Notify.info('🦄 Please, enter word for search');
         }
         setQuery(searchInfo);
         
     }
-    // console.log(movies);
+    // console.log(notFound);
     return (
         <div>
             <h1>Search movie</h1>
