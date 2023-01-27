@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMovieReviews } from "service/movies.service";
-import { toast } from 'react-toastify';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import image from '../../../images/review-1.png';
 import Spinner from "components/Spinner/Spinner";
 
 
-const MovieReview = () => {
+const Review = () => {
     const { movieId } = useParams();
     const [review, setReview] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -16,9 +16,7 @@ const MovieReview = () => {
         setLoading(true);
         getMovieReviews(movieId).then(data => setReview(data.results))
             .catch(() => {
-                toast.error('🦄 :( This movie has not any review ', {
-                    theme: "colored",
-                });
+                Notify.failure('🦄 :( This movie has not any review ');
             })
             .finally(() => setLoading(false));
     }, [movieId]);
@@ -51,17 +49,10 @@ const MovieReview = () => {
                     })
                 }    
             </ul>
-            {/* {review.length === null &&
-                <div>
-                    <p className="">We did not find any reviews, but you can be the first if you leave one</p>
-                    <img src={defaultImg} alt="no reviews" className=""/>
-                </div>
-            } */}
-            
         </div>
 
     )
 
 }
 
-export default MovieReview;
+export default Review;

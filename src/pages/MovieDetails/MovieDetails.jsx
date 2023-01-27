@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useState } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { useParams, useLocation, Link, NavLink, Outlet } from "react-router-dom";
+import { useParams, useLocation, Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { getMovieDetails } from "service/movies.service";
 import Spinner from "components/Spinner/Spinner";
 import NotFound from "components/NotFound/NotFound";
@@ -13,6 +13,8 @@ const MovieDetails = () => {
     const [details, setDetails] = useState(null);
     const [loading, setLoading] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         setLoading(true);
@@ -32,7 +34,15 @@ const MovieDetails = () => {
     }
 
     // console.log(details);
-    const { release_date, original_title, title, overview, vote_average, genres, backdrop_path, imdb_id, homepage } = details;
+    const { release_date,
+            original_title,
+            title,
+            overview,
+            vote_average,
+            genres,
+            backdrop_path,
+            imdb_id,
+            homepage } = details;
     
     const release = release_date.slice(0, 4);
     const genresOfMovie = genres.map(genre => genre.name);
@@ -41,10 +51,17 @@ const MovieDetails = () => {
     
     return (
         <div>
-            <button>
+            {/* <button>
                 <Link to={location.state?.from ?? '/'}>
                     Back
                 </Link>
+            </button> */}
+            <button
+                onClick={() => navigate(location.state?.from ?? '/')}
+            >
+                {/* <Link to={}> */}
+                    Back
+                {/* </Link> */}
             </button>
             <section>
                 <div>
@@ -61,12 +78,12 @@ const MovieDetails = () => {
                 <p>Additional Informational</p>
                 <ul>
                     <li key='cast'>
-                        <NavLink to='cast' state={{ from: location.state.from }}>
+                        <NavLink to='cast' state={location.state}>
                             Cast
                         </NavLink>
                     </li>
                     <li key='reviews'>
-                        <NavLink to='reviews' state={{ from: location.state.from }}>
+                        <NavLink to='reviews' state={location.state}>
                             Reviews
                         </NavLink>
                     </li>

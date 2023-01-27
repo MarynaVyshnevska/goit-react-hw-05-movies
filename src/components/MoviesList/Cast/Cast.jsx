@@ -6,7 +6,7 @@ import Spinner from 'components/Spinner/Spinner';
 import NotFound from 'components/NotFound/NotFound';
 import image from '../../../images/actor-logo.png';
 
-const MovieCast = () => {
+const Cast = () => {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -56,4 +56,4 @@ const MovieCast = () => {
     )
 }
 
-export default MovieCast;
+export default Cast;
