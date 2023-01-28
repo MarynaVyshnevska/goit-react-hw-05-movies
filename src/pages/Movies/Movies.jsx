@@ -6,13 +6,17 @@ import { getMoviesByQuery } from "service/movies.service";
 import Spinner from "components/Spinner/Spinner";
 import NotFound from "components/NotFound/NotFound";
 import css from './Movies.module.css';
+import { useSearchParams } from "react-router-dom";
 
 const Movies = () => {
-    const [query, setQuery] = useState('');
+    // const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [notFound, setNotFound] = useState(false);
-    // const location = useLocation();
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const query = searchParams.get('query') ?? '';
+    
 
     useEffect(() => {
         if (query === '') {
@@ -25,7 +29,7 @@ const Movies = () => {
                 if (movies.results.length < 1) {
                     Notify.warning(' :( We coudnot find any movie');
                     setNotFound(true);
-                    console.log('test');
+                    // console.log('test');
                 }
                 setMovies(movies.results);
 
@@ -42,11 +46,12 @@ const Movies = () => {
     const handleChange = event => {
         event.preventDefault();
         setNotFound(false);
+
         const searchInfo = event.currentTarget.query.value.toLowerCase();
         if (searchInfo === '') {
             return Notify.info('🦄 Please, enter word for search');
         }
-        setQuery(searchInfo);
+        setSearchParams({query: searchInfo});
         
     }
     // console.log(notFound);

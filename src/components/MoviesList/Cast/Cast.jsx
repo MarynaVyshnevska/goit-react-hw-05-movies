@@ -7,6 +7,7 @@ import NotFound from 'components/NotFound/NotFound';
 import image from '../../../images/actor-logo.png';
 import css from './Cast.module.css';
 
+
 const Cast = () => {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
@@ -58,3 +59,4 @@ const Cast = () => {
 }
 
 export default Cast;
+

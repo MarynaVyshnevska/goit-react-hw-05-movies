@@ -1,4 +1,5 @@
 import css from './MovieCard.module.css';
+import PropTypes from 'prop-types';
 
 const MovieCard = ({
     original_title,
@@ -35,3 +36,14 @@ const MovieCard = ({
 }
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+    original_title: PropTypes.string, 
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string,
+    vote_average: PropTypes.number,
+    genresOfMovie: PropTypes.array,
+    imdb_id: PropTypes.string,
+    homepage: PropTypes.string,
+    release: PropTypes.string,
+}

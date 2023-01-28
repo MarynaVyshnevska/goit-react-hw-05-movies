@@ -64,6 +64,7 @@ const MovieDetails = () => {
     return (
         <div>
             <button 
+                type="button"
                 className={css.back}
                 onClick={() => navigate(location.state?.from ?? '/')}
             >
@@ -108,3 +109,4 @@ const MovieDetails = () => {
 }
 
 export default MovieDetails;
+

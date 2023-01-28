@@ -7,6 +7,7 @@ import Spinner from "components/Spinner/Spinner";
 import image from '../../../images/review-1.png';
 import css from './Review.module.css';
 
+
 const Review = () => {
     const { movieId } = useParams();
     const [review, setReview] = useState([]);
@@ -27,7 +28,7 @@ const Review = () => {
     };
 
    
-    console.log(review.length);
+    // console.log(review.length);
 
     return (
         <div>
@@ -58,3 +59,4 @@ const Review = () => {
 }
 
 export default Review;
+
